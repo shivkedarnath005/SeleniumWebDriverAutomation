@@ -1,5 +1,6 @@
 package SeleniumTests;
 
+import Screenshots.ScreenshotUtility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -33,9 +34,11 @@ public class SwagLabsLogin
             WebElement loginButton = driver.findElement(By.id("login-button"));
 
             usernameInput.sendKeys(username);
+            ScreenshotUtility.captureScreenshot(driver, "username");
             logger.info("Username entered in username field");
 
             passwordInput.sendKeys(password);
+            ScreenshotUtility.captureScreenshot(driver, "password");
             logger.info("Password is entered in password field");
 
             loginButton.click();
