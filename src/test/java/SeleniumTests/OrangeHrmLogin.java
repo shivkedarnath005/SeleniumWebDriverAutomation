@@ -6,10 +6,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
+@Listeners(Utility.ExtentTestNGListener.class)
 public class OrangeHrmLogin {
     private static final Logger logger = LogManager.getLogger(OrangeHrmLogin.class);
     WebDriver driver = new ChromeDriver();
@@ -23,6 +25,7 @@ public class OrangeHrmLogin {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         Thread.sleep(3000);
         orangeHrmLogin(username, password);
+        driver.quit();
 
     }
 

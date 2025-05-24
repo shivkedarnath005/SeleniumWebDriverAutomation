@@ -1,0 +1,31 @@
+pipeline
+	{
+      agent any
+      stages
+      {
+        stage('Checkout')
+		{
+            steps
+			{
+                // Pull code from the Git repository
+                git url: 'https://github.com/shivkedarnath005/SeleniumWebDriverAutomation.git', branch: 'main'
+            }
+        }
+        stage('Build')
+		{
+            steps
+			{
+                // Run Maven build
+                bat 'mvn clean'
+            }
+        }
+        stage('Test')
+		{
+            steps
+			{
+                // Run Maven tests
+                bat 'mvn test'
+            }
+        }
+    }
+  }
